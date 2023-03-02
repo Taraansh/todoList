@@ -15,4 +15,9 @@ def home(request):
 
 
 def tasks(request):
-    return render(request, 'tasks.html')
+    allTasks = Task.objects.all()
+    # for item in allTasks:
+    #     print(item.taskTitle)
+    #     print(item.taskDescription)
+    context = {'tasks': allTasks}
+    return render(request, 'tasks.html', context)
